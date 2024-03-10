@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://dutlyrgwuv2fs"]
+
+[ext_resource type="PackedScene" uid="uid://by1np5u130t5g" path="res://Scenes/Game/Balls/ball_basic.tscn" id="1_ppy00"]
+[ext_resource type="PackedScene" uid="uid://1ktqjgifsyyr" path="res://Scenes/Game/Point Givers/bumper.tscn" id="2_xks80"]
+[ext_resource type="PackedScene" uid="uid://cap1a5x2u6l0x" path="res://Scenes/Game/Environment/environment.tscn" id="3_wwohk"]
+[ext_resource type="PackedScene" uid="uid://3m3dyf7lno3s" path="res://Scenes/Game/Environment/pin.tscn" id="4_72q8r"]
+
+[node name="Game" type="Node"]
+
+[node name="BallBasic" parent="." instance=ExtResource("1_ppy00")]
+position = Vector2(240, -56)
+collision_mask = 1
+
+[node name="BallBasic4" parent="." instance=ExtResource("1_ppy00")]
+position = Vector2(168, -64)
+collision_mask = 1
+
+[node name="BallBasic5" parent="." instance=ExtResource("1_ppy00")]
+position = Vector2(368, -104)
+collision_mask = 1
+
+[node name="BallBasic6" parent="." instance=ExtResource("1_ppy00")]
+position = Vector2(224, -176)
+collision_mask = 1
+
+[node name="BallBasic7" parent="." instance=ExtResource("1_ppy00")]
+position = Vector2(184, -272)
+collision_mask = 1
+
+[node name="BallBasic2" parent="." instance=ExtResource("1_ppy00")]
+position = Vector2(120, -144)
+collision_mask = 1
+
+[node name="BallBasic3" parent="." instance=ExtResource("1_ppy00")]
+position = Vector2(320, -224)
+collision_mask = 1
+
+[node name="Environment" parent="." instance=ExtResource("3_wwohk")]
+metadata/_edit_lock_ = true
+
+[node name="Bumpers" type="Node2D" parent="."]
+
+[node name="Bumper" parent="Bumpers" instance=ExtResource("2_xks80")]
+position = Vector2(368, 136)
+
+[node name="Bumper2" parent="Bumpers" instance=ExtResource("2_xks80")]
+position = Vector2(304, 200)
+
+[node name="Bumper4" parent="Bumpers" instance=ExtResource("2_xks80")]
+position = Vector2(304, 72)
+
+[node name="Bumper6" parent="Bumpers" instance=ExtResource("2_xks80")]
+position = Vector2(240, 136)
+
+[node name="Bumper5" parent="Bumpers" instance=ExtResource("2_xks80")]
+position = Vector2(176, 200)
+
+[node name="Bumper7" parent="Bumpers" instance=ExtResource("2_xks80")]
+position = Vector2(112, 136)
+
+[node name="Bumper8" parent="Bumpers" instance=ExtResource("2_xks80")]
+position = Vector2(176, 72)
+
+[node name="Pins" type="Node2D" parent="."]
+
+[node name="Pin" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(240, 208)
+
+[node name="Pin8" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(216, 240)
+
+[node name="Pin4" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(264, 240)
+
+[node name="Pin5" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(264, 24)
+
+[node name="Pin21" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(344, 40)
+
+[node name="Pin22" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(368, 80)
+
+[node name="Pin23" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(392, 40)
+
+[node name="Pin7" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(240, 64)
+
+[node name="Pin6" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(304, 136)
+
+[node name="Pin2" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(344, 224)
+
+[node name="Pin19" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(392, 224)
+
+[node name="Pin9" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(176, 136)
+
+[node name="Pin10" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(136, 40)
+
+[node name="Pin12" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(112, 72)
+
+[node name="Pin13" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(88, 40)
+
+[node name="Pin16" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(88, 224)
+
+[node name="Pin17" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(112, 192)
+
+[node name="Pin18" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(136, 224)
+
+[node name="Pin11" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(368, 192)
+
+[node name="Pin3" parent="Pins" instance=ExtResource("4_72q8r")]
+position = Vector2(216, 24)

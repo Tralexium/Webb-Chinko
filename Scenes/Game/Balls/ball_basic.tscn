@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://by1np5u130t5g"]
+
+[ext_resource type="PackedScene" uid="uid://bava8ooxr5wit" path="res://Scenes/Game/Balls/_Parent/ball.tscn" id="1_qxbk2"]
+[ext_resource type="Texture2D" uid="uid://c85ppvicsywil" path="res://Assets/Sprites/Balls.png" id="2_whlq7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npw5k"]
+atlas = ExtResource("2_whlq7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f752v"]
+atlas = ExtResource("2_whlq7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwf2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npw5k")
+}],
+"loop": true,
+"name": &"basic",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f752v")
+}],
+"loop": true,
+"name": &"red",
+"speed": 10.0
+}]
+
+[node name="BallBasic" instance=ExtResource("1_qxbk2")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_uwf2j")
+animation = &"red"

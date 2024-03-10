@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://byeu8bfkprd2h"]
+
+[ext_resource type="Script" path="res://Scenes/UI/api_key_popup.gd" id="1_u3que"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr8iq"]
+bg_color = Color(0.129412, 0.109804, 0.160784, 0.4)
+
+[node name="APIKeyPopup" type="Panel"]
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wr8iq")
+script = ExtResource("1_u3que")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Paste GitLab Access Token Here"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Submit"
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 31.0
+offset_right = 81.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.505882, 0.701961, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.470588, 0.207843, 0.568627, 1)
+theme_override_colors/font_hover_color = Color(0.521569, 0.815686, 1, 1)
+theme_override_colors/font_focus_color = Color(0.847059, 0.396078, 0.658824, 1)
+text = "Generate new token"
+underline = 1
+uri = "https://gitlab.com/-/user_settings/personal_access_tokens"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

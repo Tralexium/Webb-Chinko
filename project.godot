@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Webb Chinko"
+run/main_scene="res://Scenes/Game/game.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://Autoloads/globals.gd"
+Data="*res://Autoloads/data.gd"
+Gitlab="*res://Autoloads/gitlab.gd"
+Util="*res://Autoloads/util.gd"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/always_on_top=true
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/energy_saving/keep_screen_on=false
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
+[layer_names]
+
+2d_render/layer_1="Layer 1"
+2d_render/layer_2="Layer 2"
+2d_render/layer_3="Layer 3"
+2d_physics/layer_1="Solid"
+2d_physics/layer_2="Ball"
+2d_physics/layer_3="Bumper"
+2d_physics/layer_4="Pit"
+
+[physics]
+
+2d/default_gravity=450.0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

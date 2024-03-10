@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://1ktqjgifsyyr"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Point Givers/bumper.gd" id="1_1ajxa"]
+[ext_resource type="Texture2D" uid="uid://ccrf4d1o5rg85" path="res://Assets/Sprites/Bumpers.png" id="1_r8u46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4wur"]
+atlas = ExtResource("1_r8u46")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qoa8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4wur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_012nw"]
+radius = 18.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_adusf"]
+friction = 0.0
+bounce = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y44yh"]
+radius = 14.0
+
+[sub_resource type="Animation" id="Animation_xshdp"]
+resource_name = "bounce"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_enjip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sa6fx"]
+_data = {
+"RESET": SubResource("Animation_enjip"),
+"bounce": SubResource("Animation_xshdp")
+}
+
+[node name="Bumper" type="Area2D"]
+light_mask = 0
+z_index = 1
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_1ajxa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qoa8c")
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Assets/Sprites",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://Assets/Sprites/Bumpers.ase"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_012nw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_adusf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_y44yh")
+debug_color = Color(0, 0.184314, 0.701961, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sa6fx")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

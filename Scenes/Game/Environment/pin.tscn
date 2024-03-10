@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://3m3dyf7lno3s"]
+
+[ext_resource type="Texture2D" uid="uid://btoraquim6apq" path="res://Assets/Sprites/Pins.png" id="1_aoo2u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ascvg"]
+friction = 0.0
+bounce = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an2fm"]
+atlas = ExtResource("1_aoo2u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hkrk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an2fm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmjgy"]
+radius = 7.0
+
+[node name="Pin" type="StaticBody2D"]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_ascvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0hkrk")
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Assets/Sprites",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://Assets/Sprites/Pins.ase"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dmjgy")
