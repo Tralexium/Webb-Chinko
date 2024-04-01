@@ -56,3 +56,5 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
 textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_clear_color=Color(0, 0, 0, 0)
+anti_aliasing/quality/msaa_3d=2
+mesh_lod/lod_change/threshold_pixels=0.0
