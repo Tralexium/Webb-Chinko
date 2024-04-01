@@ -51,7 +51,7 @@ shader_parameter/shine_speed = 0.7
 shader_parameter/shine_width = 150.0
 shader_parameter/scale_factor = 3.0
 shader_parameter/edge_feathering = 50.0
-shader_parameter/camera_influence = 2.5
+shader_parameter/camera_influence = 4.0
 
 [node name="Webboy" instance=ExtResource("1_1yvlo")]
 script = ExtResource("2_mn1b0")
@@ -82,7 +82,7 @@ material_override = SubResource("ShaderMaterial_y2pyq")
 surface_material_override/0 = SubResource("ShaderMaterial_y2pyq")
 
 [node name="Camera3D" type="Camera3D" parent="." index="6"]
-transform = Transform3D(0.0183768, 0.0993784, 0.99488, 0, 0.995048, -0.0993952, -0.999831, 0.00182657, 0.0182858, 1.7969, -0.197924, -0.00550335)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.8438, -0.00175905, -0.00550335)
 top_level = true
 visible = false
 current = true
