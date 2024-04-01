@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cap1a5x2u6l0x"]
+[gd_scene load_steps=7 format=3 uid="uid://cap1a5x2u6l0x"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Environment/environment.gd" id="1_4l85s"]
 [ext_resource type="Texture2D" uid="uid://d0qlggshqeuq" path="res://Assets/Sprites/Wall.png" id="1_dhyv1"]
-[ext_resource type="Texture2D" uid="uid://b4o8v548gs0pc" path="res://Assets/Sprites/Background Stars.png" id="2_t1xhp"]
-[ext_resource type="Texture2D" uid="uid://cbclayraytvrj" path="res://Assets/Sprites/Background Stars Top.png" id="4_f408g"]
-[ext_resource type="Texture2D" uid="uid://cuop08vgrwxw2" path="res://Assets/Sprites/Background Stars Mid.png" id="4_xamik"]
+[ext_resource type="Texture2D" uid="uid://d32ed7hpvyrny" path="res://Assets/Sprites/BG Diagonal Lines.png" id="3_og1as"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aj4h2"]
 friction = 0.0
@@ -38,7 +36,7 @@ shape = SubResource("WorldBoundaryShape2D_kxkrb")
 [node name="RightWall" type="Sprite2D" parent="."]
 z_index = 1
 texture_repeat = 2
-position = Vector2(456, 170)
+position = Vector2(328, 170)
 texture = ExtResource("1_dhyv1")
 flip_h = true
 region_enabled = true
@@ -55,60 +53,14 @@ shape = SubResource("WorldBoundaryShape2D_yb78l")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Back" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(512, 512)
+motion_mirroring = Vector2(1024, 1024)
 
 [node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Back"]
 texture_filter = 1
 texture_repeat = 2
-texture = ExtResource("2_t1xhp")
+texture = ExtResource("3_og1as")
 region_enabled = true
-region_rect = Rect2(0, 0, 512, 512)
-metadata/_aseprite_wizard_config_ = {
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://Assets/Sprites",
-"o_name": "",
-"only_visible": false,
-"slice": "",
-"source": "res://Assets/Sprites/Backgrounds.ase"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"output_section": true
-}
-
-[node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1.2, 1.2)
-motion_mirroring = Vector2(512, 512)
-
-[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Mid"]
-texture_filter = 1
-texture_repeat = 2
-texture = ExtResource("4_xamik")
-region_enabled = true
-region_rect = Rect2(0, 0, 512, 512)
-metadata/_aseprite_wizard_config_ = {
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://Assets/Sprites",
-"o_name": "",
-"only_visible": false,
-"slice": "",
-"source": "res://Assets/Sprites/Backgrounds.ase"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"output_section": true
-}
-
-[node name="Top" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1.5, 1.5)
-motion_mirroring = Vector2(512, 512)
-
-[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Top"]
-texture_filter = 1
-texture_repeat = 2
-texture = ExtResource("4_f408g")
-region_enabled = true
-region_rect = Rect2(0, 0, 512, 512)
+region_rect = Rect2(0, 0, 1024, 1024)
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",

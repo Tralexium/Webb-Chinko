@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdoca34wi16ph"]
+
+[ext_resource type="PackedScene" uid="uid://e7iplrpq3s78" path="res://Assets/Models/webboy.glb" id="1_1yvlo"]
+[ext_resource type="Script" path="res://Scenes/Game/webboy.gd" id="2_mn1b0"]
+[ext_resource type="Material" uid="uid://ckflbwy4qr83s" path="res://Assets/Materials/Plastic.tres" id="2_w3blw"]
+[ext_resource type="Texture2D" uid="uid://cq68wkogf4tqw" path="res://Assets/Models/A Button White.png" id="3_olnie"]
+[ext_resource type="Texture2D" uid="uid://2jfe6njhicy6" path="res://Assets/Models/B Button White.png" id="4_ccuqi"]
+[ext_resource type="Shader" path="res://Scenes/Game/toon_glass.gdshader" id="5_5jjsk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mn2k"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8wvq"]
+albedo_color = Color(0.537255, 0.266667, 0.831373, 1)
+roughness = 0.54
+rim_enabled = true
+rim_tint = 0.0
+clearcoat = 0.0
+backlight = Color(0.988235, 0.776471, 0.0196078, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_geg6l"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.690196, 0.690196, 0.690196, 1)
+albedo_texture = ExtResource("3_olnie")
+roughness = 0.03
+emission_energy_multiplier = 8.4
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+texture_repeat = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp6n7"]
+cull_mode = 2
+albedo_color = Color(0.690196, 0.690196, 0.690196, 1)
+albedo_texture = ExtResource("4_ccuqi")
+roughness = 0.03
+emission_energy_multiplier = 8.4
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+texture_repeat = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2pyq"]
+render_priority = 0
+shader = ExtResource("5_5jjsk")
+shader_parameter/shine_color = Color(1, 1, 1, 0.184314)
+shader_parameter/shine_direction = Vector3(0, 1, 1)
+shader_parameter/shine_speed = 0.7
+shader_parameter/shine_width = 150.0
+shader_parameter/scale_factor = 3.0
+shader_parameter/edge_feathering = 50.0
+shader_parameter/camera_influence = 1.5
+
+[node name="Webboy" instance=ExtResource("1_1yvlo")]
+script = ExtResource("2_mn1b0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0"]
+transform = Transform3D(-0.458274, -0.422251, 0.782106, 0.597163, 0.505476, 0.622809, -0.658317, 0.752461, 0.0205062, 0.33608, 0.290919, -0.0207528)
+shadow_enabled = true
+directional_shadow_split_3 = 0.466
+
+[node name="Console" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4mn2k")
+surface_material_override/1 = SubResource("StandardMaterial3D_s8wvq")
+
+[node name="DPad" parent="." index="2"]
+transform = Transform3D(0.0690443, 0, 0, 0, 0.213215, 0, 0, 0, 0.213215, 0.125133, -0.550128, 0.55116)
+material_override = ExtResource("2_w3blw")
+surface_material_override/0 = ExtResource("2_w3blw")
+
+[node name="A Button" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_geg6l")
+
+[node name="B Button" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vp6n7")
+
+[node name="Glass" parent="." index="5"]
+material_override = SubResource("ShaderMaterial_y2pyq")
+surface_material_override/0 = SubResource("ShaderMaterial_y2pyq")
+
+[node name="Camera3D" type="Camera3D" parent="." index="6"]
+transform = Transform3D(0.0183768, 0.0993784, 0.99488, 0, 0.995048, -0.0993952, -0.999831, 0.00182657, 0.0182858, 1.7969, -0.197924, -0.00550335)
+visible = false

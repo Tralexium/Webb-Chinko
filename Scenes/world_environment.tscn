@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://da48qbgnd662v"]
+
+[ext_resource type="Texture2D" uid="uid://cuxw23u74gj1o" path="res://Assets/Environment/buikslotermeerplein_4k.hdr" id="1_xv7fg"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rw2st"]
+panorama = ExtResource("1_xv7fg")
+
+[sub_resource type="Sky" id="Sky_n12j6"]
+sky_material = SubResource("PanoramaSkyMaterial_rw2st")
+
+[sub_resource type="Environment" id="Environment_ry0pu"]
+background_mode = 2
+sky = SubResource("Sky_n12j6")
+sdfgi_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_ry0pu")
