@@ -3,6 +3,8 @@ render_mode unshaded, depth_draw_never;
 
 uniform vec4 shine_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform vec3 shine_direction = vec3(0.0, 1.0, 1.0);
+uniform vec2 cubemap_scroll_spd = vec2(0.01, 0.02);
+uniform sampler2D cubemap : source_color;
 uniform float shine_speed : hint_range(0.1, 5.0) = 0.7;
 uniform float shine_width : hint_range(1.0, 500.0) = 150.0;
 uniform float scale_factor : hint_range(1.0, 10.0) = 3.0;
@@ -34,7 +36,11 @@ void fragment()
     // Use smoothstep to create soft edges within the normalized sine wave
     float soft_edge = smoothstep(start - softness, start, sine_wave) * (1.0 - smoothstep(end, end + softness, sine_wave));
 
+ 	// Sample from the cubemap based on reflected direction
+    vec3 reflection_vec = reflect(VERTEX, NORMAL); 
+    vec3 cubemap_color = texture(cubemap, reflection_vec.xy * vec2(-0.2) + vec2(TIME*cubemap_scroll_spd.x, TIME*cubemap_scroll_spd.y)).rgb;
+
     // Using soft_edge for ALPHA calculation
-    ALBEDO = shine_color.rgb;
-    ALPHA = clamp((1.0 - dot(NORMAL, VIEW)) * soft_edge * shine_color.a, 0.0, 1.0);
+    ALBEDO = shine_color.rgb * cubemap_color;
+    ALPHA = clamp((1.0 - dot(NORMAL, VIEW)) * soft_edge * shine_color.a, 0.01, 1.0);
 }

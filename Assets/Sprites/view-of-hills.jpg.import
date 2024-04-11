@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wvm3pl8huoc2"
-path.s3tc="res://.godot/imported/glass-1.jpg-2d6e20ea79938126d7153c18434048f7.s3tc.ctex"
+uid="uid://b1imjx5fgfxyr"
+path.s3tc="res://.godot/imported/view-of-hills.jpg-bb49cd15fe2b435498f59ca2e70401d0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Shaders/glass-1.jpg"
-dest_files=["res://.godot/imported/glass-1.jpg-2d6e20ea79938126d7153c18434048f7.s3tc.ctex"]
+source_file="res://Assets/Sprites/view-of-hills.jpg"
+dest_files=["res://.godot/imported/view-of-hills.jpg-bb49cd15fe2b435498f59ca2e70401d0.s3tc.ctex"]
 
 [params]
 
