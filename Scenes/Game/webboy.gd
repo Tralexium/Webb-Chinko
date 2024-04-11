@@ -12,6 +12,8 @@ var mouse_is_inside: bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var d_pad: MeshInstance3D = $DPad
+@onready var a_button: MeshInstance3D = $"A Button"
+@onready var b_button: MeshInstance3D = $"B Button"
 
 
 func _process(delta):
@@ -56,7 +58,7 @@ func _on_dpad_input_event(camera: Node, event: InputEvent, position: Vector3, no
 	
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			animation_player.stop()
+			animation_player.stop(true)
 			if _angle >= 0.0 and _angle < 90.0:
 				animation_player.play("dpad_left")
 			elif _angle >= 90.0 and _angle < 180.0:
@@ -65,3 +67,29 @@ func _on_dpad_input_event(camera: Node, event: InputEvent, position: Vector3, no
 				animation_player.play("dpad_right")
 			elif _angle >= 270.0 and _angle < 360.0:
 				animation_player.play("dpad_down")
+
+
+func _on_abutton_mouse_entered() -> void:
+	a_button.material_overlay.set_shader_parameter("outline_width", hover_outline_girth)
+
+func _on_abutton_mouse_exited() -> void:
+	a_button.material_overlay.set_shader_parameter("outline_width", 0.0)
+
+func _on_abutton_input_event(camera: Node, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			animation_player.stop(true)
+			animation_player.play("a_button")
+
+
+func _on_bbutton_mouse_entered() -> void:
+	b_button.material_overlay.set_shader_parameter("outline_width", hover_outline_girth)
+
+func _on_bbutton_mouse_exited() -> void:
+	b_button.material_overlay.set_shader_parameter("outline_width", 0.0)
+
+func _on_bbutton_input_event(camera: Node, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			animation_player.stop(true)
+			animation_player.play("b_button")
